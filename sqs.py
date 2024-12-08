@@ -15,18 +15,18 @@ arndafila = client_sqs.get_queue_attributes(
     AttributeNames=['QueueArn']
 )['Attributes']['QueueArn']
 
-sns = boto3.client('sns')
+mysns = sessao.client('sns')
 
-with open('sns_topic_arn.json', 'r') as f:
-    dados = json.load(f)
-    topico = dados['TopicArn']
+meusTopicos = mysns.list_topics()
 
-sns.subscribe(
-    TopicArn=topico,
+topicoArn = meusTopicos['Topics'][0]['TopicArn']
+
+mysns.subscribe(
+    TopicArn=topicoArn,
     Protocol='sqs',
     Endpoint=arndafila,
 )
 
 print("A fila foi criada com sucesso! URL:", response['QueueUrl'])
 print("Assinatura criada com sucesso. ARN da Fila:", arndafila)
-print("Topico criado com sucesso. ARN do Tópico:", topico)
+print("Topico criado com sucesso. ARN do Tópico:", topicoArn)
