@@ -2,6 +2,8 @@ import boto3
 
 # sessao = boto3.Session(profile_name='default')
 
+sessao = boto3.Session()
+
 qtd_linhas = 0
 
 s3 = sessao.client('s3')
