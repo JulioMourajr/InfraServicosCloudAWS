@@ -120,3 +120,5 @@ Criar a Função Lambda via Boto3: Atualmente, a função Lambda foi criada via 
 Automatizar a Inserção de Dados no DynamoDB: O script colocarArquivo.py que insere o nome do arquivo e a quantidade de linhas na tabela DynamoDB não está automatizado. Automatizar este processo para que ele seja executado automaticamente sempre que um novo arquivo for adicionado ao bucket S3.
 
 ### Observabilidade
+
+A aplicação manda um email para uma determinada pessoa, quando ocorrer um push na branch main ou um pull request.
