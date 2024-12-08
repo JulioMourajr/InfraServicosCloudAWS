@@ -4,8 +4,7 @@ on:
   push:
     branches:
       - main
-      - gotoDynamoDB
-
+  
   pull_request:
     branches:
       - main
